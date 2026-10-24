@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- @include head -->
+<title>Faculty · Northstar Academy</title>
+<meta name="description" content="Meet Northstar Academy's teachers: subjects, qualifications and years of experience across O/A Level, Matric, Intermediate, MDCAT and ECAT.">
+<script type="module" src="/src/main.js"></script>
+</head>
+<body data-barba="wrapper">
+<!-- @include header -->
+<main id="main" data-barba="container" data-barba-namespace="faculty">
+
+  <section class="page-head" aria-labelledby="fac-title">
+    <div class="container">
+      <p class="eyebrow">Faculty</p>
+      <h1 id="fac-title" class="display" data-letters>Meet your<br><em>guides.</em></h1>
+      <p class="lead">Eight teachers, 105 years of classroom between them. Scroll to flip through the deck.</p>
+    </div>
+  </section>
+
+  <section class="deck" data-deck aria-label="Faculty ID cards">
+    <div class="deck-sticky">
+      <div class="deck-stage" data-deck-stage></div>
+      <div class="deck-hud mono"><span>Faculty ID</span><span><b data-deck-i>01</b> / <span data-deck-n>08</span></span></div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="all-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Everyone at once</p>
+          <h2 id="all-title" class="display" data-letters>Who teaches what</h2>
+        </div>
+      </div>
+      <div class="table-wrap" data-reveal>
+        <table class="data-table" data-fac-table>
+          <caption class="sr-only">Faculty, their subjects, levels and qualifications</caption>
+          <thead><tr><th scope="col">Teacher</th><th scope="col">Subject</th><th scope="col">Levels</th><th scope="col">Qualifications</th><th scope="col">Experience</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- @include footer -->
+</body>
+</html>

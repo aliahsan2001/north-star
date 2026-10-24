@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- @include head -->
+<title>Admissions & Fees · Northstar Academy</title>
+<meta name="description" content="Northstar Academy admissions: fee structure, a live fee calculator with discounts, and a short application form.">
+<script type="module" src="/src/main.js"></script>
+</head>
+<body data-barba="wrapper">
+<!-- @include header -->
+<main id="main" data-barba="container" data-barba-namespace="admissions">
+
+  <section class="page-head" aria-labelledby="adm-title">
+    <div class="container">
+      <p class="eyebrow">Admissions 2026–27</p>
+      <h1 id="adm-title" class="display" data-letters>Find your fee.<br><em>Then apply.</em></h1>
+      <p class="lead">Pick a programme, tick your subjects, and watch your constellation light up. The total updates as you go, discounts included.</p>
+      <nav class="adm-jump" aria-label="On this page">
+        <a class="btn btn-ghost btn-sm" href="#calculator" data-jump>Fee calculator</a>
+        <a class="btn btn-ghost btn-sm" href="#fees" data-jump>Fee structure</a>
+        <a class="btn btn-ghost btn-sm" href="#apply" data-jump>Apply</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-tight calc-section" id="calculator" aria-labelledby="calc-title">
+    <div class="container calc">
+      <div class="calc-left">
+        <h2 id="calc-title" class="display">Fee calculator</h2>
+        <fieldset class="prog-pick">
+          <legend class="mono">1 · Programme</legend>
+          <div class="prog-pick-row" data-prog-pick></div>
+        </fieldset>
+        <fieldset class="subj-pick">
+          <legend class="mono">2 · Subjects <span data-subj-count></span></legend>
+          <div class="subj-grid" data-subj-grid></div>
+        </fieldset>
+        <label class="sibling-toggle"><input type="checkbox" data-sibling> <span>A brother or sister already studies at Northstar <small>(10% off)</small></span></label>
+      </div>
+      <aside class="calc-right" aria-live="polite">
+        <div class="calc-sky" data-calc-sky></div>
+        <p class="mono calc-const" data-calc-const></p>
+        <dl class="calc-lines" data-calc-lines></dl>
+        <div class="calc-total"><span>Monthly fee</span><b data-calc-total>Rs 0</b></div>
+        <p class="calc-once" data-calc-once></p>
+        <a class="btn btn-pill" href="#apply" data-jump data-calc-apply>Apply with these subjects <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight" id="fees" aria-labelledby="fees-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Fee structure</p>
+          <h2 id="fees-title" class="display" data-letters>Every fee, up front</h2>
+        </div>
+      </div>
+      <div class="fees-grid" data-fees></div>
+      <ul class="fee-notes">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>10% off the monthly fee when you take 4 or more subjects.</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>MDCAT and ECAT: 15% off when you take the full package.</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>10% sibling discount, on top of the others.</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Admission fee is paid once. Monthly fees are due by the 10th.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tight" id="apply" aria-labelledby="apply-title">
+    <div class="container apply">
+      <div class="apply-side">
+        <p class="eyebrow">Apply</p>
+        <h2 id="apply-title" class="display" data-letters>Two minutes.<br>Tara will help.</h2>
+        <div class="apply-tara" data-apply-tara></div>
+      </div>
+      <form class="apply-form" data-apply novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="a-name">Student's full name</label><input id="a-name" name="name" autocomplete="name" required><p class="field-error" id="e-name"></p></div>
+          <div class="field"><label for="a-parent">Parent or guardian</label><input id="a-parent" name="parent" required><p class="field-error" id="e-parent"></p></div>
+          <div class="field"><label for="a-phone">Mobile number</label><input id="a-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx" required><p class="field-error" id="e-phone"></p></div>
+          <div class="field"><label for="a-email">Email <span class="optional">(optional)</span></label><input id="a-email" name="email" type="email" autocomplete="email"><p class="field-error" id="e-email"></p></div>
+          <div class="field"><label for="a-prog">Programme</label><select id="a-prog" name="programme" required></select><p class="field-error" id="e-programme"></p></div>
+          <div class="field"><label for="a-batch">Batch</label><select id="a-batch" name="batch" required></select><p class="field-error" id="e-batch"></p></div>
+          <div class="field field-wide"><label for="a-school">Current school <span class="optional">(optional)</span></label><input id="a-school" name="school"></div>
+        </div>
+        <p class="apply-subjects" data-apply-subjects></p>
+        <button class="btn btn-pill" type="submit">Send application <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="apply-done" data-apply-done hidden tabindex="-1"></div>
+    </div>
+  </section>
+
+</main>
+<!-- @include footer -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- @include head -->
+<title>Results · Northstar Academy</title>
+<meta name="description" content="Northstar Academy's 2026 results: top achievers across O/A Level, Matric, Intermediate, MDCAT and ECAT.">
+<script type="module" src="/src/main.js"></script>
+</head>
+<body data-barba="wrapper">
+<!-- @include header -->
+<main id="main" data-barba="container" data-barba-namespace="results">
+
+  <section class="hall" aria-labelledby="res-title">
+    <div class="hall-stage" data-hall-stage>
+      <canvas data-hall-canvas aria-hidden="true"></canvas>
+    </div>
+    <div class="container hall-head">
+      <p class="eyebrow">Results 2026</p>
+      <h1 id="res-title" class="display hall-title" data-letters>The hall<br>of <em>stars.</em></h1>
+      <p class="hall-hint">Drag to spin. Click a card to bring it forward.</p>
+    </div>
+    <div class="hall-now" aria-live="polite" data-hall-now></div>
+    <div class="hall-controls">
+      <div class="seg" role="group" aria-label="Arrangement">
+        <button type="button" class="seg-btn" data-layout="ring" aria-pressed="true"><svg aria-hidden="true"><use href="#i-ring"/></svg> <span>Ring</span></button>
+        <button type="button" class="seg-btn" data-layout="spiral" aria-pressed="false"><svg aria-hidden="true"><use href="#i-spiral"/></svg> <span>Spiral</span></button>
+      </div>
+      <div class="hall-nav">
+        <button type="button" class="icon-btn" data-prev aria-label="Previous achiever"><svg aria-hidden="true"><use href="#i-back"/></svg></button>
+        <span class="mono hall-count"><b data-hall-i>1</b> of <span data-hall-n>24</span></span>
+        <button type="button" class="icon-btn" data-next aria-label="Next achiever"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="hall-lite" aria-label="Top achievers">
+    <div class="container"><div class="hall-lite-row" data-hall-lite></div></div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="num-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">By the numbers</p>
+          <h2 id="num-title" class="display" data-letters>A good year</h2>
+        </div>
+      </div>
+      <div class="stat-row" data-stats></div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="table-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Every top result</p>
+          <h2 id="table-title" class="display" data-letters>Top 24, 2026</h2>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filter by programme" data-filters></div>
+      </div>
+      <div class="table-wrap" data-reveal>
+        <table class="data-table" data-results>
+          <caption class="sr-only">Top achievers in 2026 with programme and score</caption>
+          <thead><tr><th scope="col">#</th><th scope="col">Student</th><th scope="col">Programme</th><th scope="col">Result</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="cta-strip">
+        <p><b>Next year's hall has room.</b> Admissions for 2026–27 are open.</p>
+        <a class="btn btn-pill" href="/admissions">Apply now <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- @include footer -->
+</body>
+</html>

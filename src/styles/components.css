@@ -1,0 +1,126 @@
+/* =========================================================
+   Components: warp, sky journey, constellations, Tara, cards
+   ========================================================= */
+
+/* ---------- light-speed page transition ---------- */
+.warp { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 250; pointer-events: none; opacity: 0; }
+.warp.is-active { opacity: 1; pointer-events: auto; }
+
+/* ---------- home: the sky journey ---------- */
+.sky { position: relative; margin-top: calc(var(--header-h) * -1); }
+.sky-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; background: radial-gradient(ellipse at 50% 120%, #16245a, var(--bg) 60%); }
+.sky-sticky canvas { width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 1.2s var(--ease); }
+.sky-sticky canvas.is-ready { opacity: 1; }
+.sky-hud { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 24px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .72rem; }
+.sky-hud b { color: var(--yellow); font-weight: 700; }
+.sky-panels { position: relative; z-index: 2; margin-top: -100svh; }
+.sky-panel { min-height: 100svh; display: flex; align-items: center; padding: calc(var(--header-h) + 30px) 0 80px; }
+.sky-intro .lead { margin: 22px 0 34px; }
+.hero-title { max-width: 9ch; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+.scroll-hint { margin-top: 44px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+.hint-star { color: var(--yellow); display: inline-block; animation: hintStar 2.4s ease-in-out infinite; }
+@keyframes hintStar { 50% { transform: translateY(6px) rotate(36deg); } }
+.panel-card { max-width: 480px; padding: 30px; border-radius: var(--radius-lg); background: rgba(11, 20, 51, .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--line-2); box-shadow: var(--shadow); display: grid; gap: 12px; }
+.panel-const { color: var(--yellow); display: flex; align-items: center; gap: 8px; }
+.panel-card h2 { font-size: clamp(2.6rem, 5vw, 3.8rem); }
+.panel-meta { color: var(--muted); font-weight: 600; }
+.panel-blurb { color: var(--text); }
+.panel-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 6px; }
+.panel-lite { display: none; }
+.sky-north { text-align: center; }
+.sky-north .container { display: grid; justify-items: center; }
+.sky-north .lead { margin: 20px auto 34px; }
+.sky-north .hero-ctas { justify-content: center; }
+
+/* lighter devices: a CSS starfield, each panel draws its own constellation */
+.sky-lite { display: none; position: absolute; inset: 0; background-image:
+  radial-gradient(1.5px 1.5px at 12% 22%, #fff, transparent), radial-gradient(1px 1px at 32% 68%, #fff, transparent),
+  radial-gradient(1.5px 1.5px at 52% 14%, #ffe27a, transparent), radial-gradient(1px 1px at 72% 44%, #fff, transparent),
+  radial-gradient(2px 2px at 86% 80%, #fff, transparent), radial-gradient(1px 1px at 22% 88%, #fff, transparent),
+  radial-gradient(1.5px 1.5px at 62% 92%, #ffe27a, transparent), radial-gradient(1px 1px at 92% 18%, #fff, transparent);
+  background-size: 340px 340px; animation: liteSky 60s linear infinite; }
+@keyframes liteSky { to { background-position: 0 -340px; } }
+.lite .sky-lite { display: block; }
+.lite .sky-sticky canvas { display: none; }
+.lite .panel-lite { display: block; }
+.panel-lite .constellation { width: 160px; height: 160px; margin: 8px auto 0; }
+
+/* ---------- constellation svg ---------- */
+.constellation { overflow: visible; }
+.c-edge { stroke: rgba(255, 210, 63, .18); stroke-width: .8; transition: stroke .4s; }
+.c-edge.is-lit, .is-lit-all .c-edge { stroke: var(--yellow); filter: drop-shadow(0 0 2px rgba(255,210,63,.8)); }
+.c-halo { fill: rgba(255, 210, 63, 0); transition: fill .4s, transform .5s var(--ease); }
+.c-core { fill: rgba(220, 230, 255, .45); transition: fill .4s; }
+.c-star.is-lit .c-halo, .is-lit-all .c-halo { fill: rgba(255, 210, 63, .28); }
+.c-star.is-lit .c-core, .is-lit-all .c-core { fill: #fff6c8; }
+.c-star text { font-size: 4px; fill: var(--muted); text-anchor: middle; font-family: var(--font-body); }
+
+/* ---------- stats + achievers ---------- */
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 26px; }
+.stat { padding: 26px 24px; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--line); }
+.stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(2.6rem, 4.5vw, 3.6rem); line-height: 1; color: var(--yellow); }
+.stat > span { color: var(--muted); font-size: .95rem; }
+.achiever-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.achiever { position: relative; padding: 26px 24px; border-radius: var(--radius); background: linear-gradient(160deg, var(--panel-2), var(--panel)); border: 1px solid var(--line-2); overflow: hidden; }
+.achiever-star { position: absolute; right: -10px; top: -22px; font-size: 6rem; color: rgba(255,210,63,.1); }
+.achiever .mono { color: var(--yellow); }
+.achiever h3 { font-family: var(--font-display); font-size: 1.5rem; margin: 10px 0 6px; }
+.achiever-score { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; color: var(--text); }
+
+/* ---------- why ---------- */
+.photo-card { position: relative; margin: 0; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 4.2; border: 2.5px solid var(--yellow); box-shadow: 10px 10px 0 var(--yellow-deep); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; }
+.sticker { position: absolute; right: 18px; bottom: 18px; padding: 12px 18px; border-radius: 999px; background: var(--yellow); color: var(--bg); font-weight: 700; transform: rotate(-4deg); box-shadow: 0 5px 0 var(--yellow-deep); }
+.sticker b { font-family: var(--font-display); font-size: 1.5rem; }
+.why-list { display: grid; gap: 18px; margin-top: 30px; }
+.why-list li { display: grid; grid-template-columns: 54px 1fr; gap: 16px; }
+.why-ico { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 16px; background: var(--panel-2); color: var(--yellow); border: 1px solid var(--line-2); }
+.why-ico svg { width: 26px; height: 26px; }
+.why-list h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 4px; }
+.why-list p { color: var(--muted); }
+
+/* ---------- teacher chips ---------- */
+.teacher-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.teacher-chip { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line-2); text-decoration: none; transition: border-color .2s; }
+.teacher-chip:hover { border-color: var(--yellow); }
+.teacher-chip b { display: block; }
+.teacher-chip small { color: var(--muted); }
+.mono-avatar { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--tone); color: var(--bg); font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; border: 2.5px solid var(--bg); box-shadow: 0 0 0 2px var(--tone); }
+
+/* ---------- CTA with Tara ---------- */
+.cta-card { display: grid; grid-template-columns: 260px 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(28px, 5vw, 56px); border-radius: var(--radius-lg); background: linear-gradient(140deg, var(--panel-2), var(--panel)); border: 2.5px solid var(--yellow); box-shadow: 10px 10px 0 var(--yellow-deep); }
+.cta-card h2 { margin-bottom: 12px; }
+.cta-card p { color: var(--muted); margin-bottom: 24px; max-width: 46ch; }
+
+/* ---------- Tara ---------- */
+.tara { position: relative; display: grid; justify-items: center; gap: 6px; }
+.tara-svg { width: 150px; height: 150px; overflow: visible; }
+.tara-bubble { position: relative; max-width: 240px; padding: 10px 14px; border-radius: 18px; background: #fff8e1; color: var(--bg); font-size: .9rem; font-weight: 600; line-height: 1.35; box-shadow: 0 4px 0 rgba(0,0,0,.35); }
+.tara-bubble::after { content: ''; position: absolute; left: 50%; bottom: -8px; width: 16px; height: 16px; margin-left: -8px; background: #fff8e1; transform: rotate(45deg); border-radius: 3px; }
+.tara-name { display: block; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: #8a6a00; }
+.tara-eye { fill: #1b1440; }
+.tara-mouth { fill: none; stroke: #1b1440; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.tara[data-mood='cheer'] .tara-mouth { fill: #ff7a6b; }
+.tara-cheek { fill: #ff9f8f; opacity: .7; }
+.tara-brow { fill: none; stroke: #1b1440; stroke-width: 2.4; stroke-linecap: round; opacity: 0; }
+.tara-q { font-family: var(--font-display); font-weight: 800; font-size: 28px; fill: #fff8e1; opacity: 0; }
+.tara-sparks path { fill: var(--yellow-2); opacity: 0; }
+.tara-confetti { position: absolute; left: 50%; top: 55%; color: var(--yellow); font-size: 16px; pointer-events: none; }
+
+@media (max-width: 1080px) {
+  .stat-row, .achiever-row { grid-template-columns: 1fr 1fr; }
+  .teacher-chips { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .panel-card { max-width: none; }
+  .sky-panel { align-items: flex-end; padding-bottom: 70px; }
+  .sky-intro { align-items: center; }
+  .teacher-chips { grid-template-columns: 1fr; }
+  .cta-card { grid-template-columns: 1fr; text-align: center; justify-items: center; box-shadow: 6px 6px 0 var(--yellow-deep); }
+  .photo-card { box-shadow: 6px 6px 0 var(--yellow-deep); }
+}
+@media (max-width: 480px) {
+  .stat-row, .achiever-row { grid-template-columns: 1fr; }
+}
+.stat b span { color: inherit; font: inherit; }

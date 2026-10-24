@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- @include head -->
+<title>Programmes · Northstar Academy</title>
+<meta name="description" content="O Level, A Level, Matric, Intermediate, MDCAT and ECAT prep at Northstar Academy: subjects, batch timings, durations and fees.">
+<script type="module" src="/src/main.js"></script>
+</head>
+<body data-barba="wrapper">
+<!-- @include header -->
+<main id="main" data-barba="container" data-barba-namespace="programmes">
+
+  <section class="atlas" aria-labelledby="prog-title" data-atlas>
+    <div class="atlas-stage" data-atlas-stage>
+      <canvas data-atlas-canvas aria-hidden="true"></canvas>
+      <svg class="atlas-links" data-atlas-links aria-hidden="true"></svg>
+      <div class="atlas-labels" data-atlas-labels></div>
+    </div>
+    <div class="container atlas-head">
+      <p class="eyebrow">Programmes</p>
+      <h1 id="prog-title" class="display atlas-title" data-letters>Six constellations.<br><em>One is yours.</em></h1>
+      <p class="atlas-hint mono" data-atlas-hint>Click a constellation to see its subjects</p>
+    </div>
+    <aside class="atlas-panel" data-atlas-panel aria-live="polite" hidden></aside>
+  </section>
+
+  <section class="prog-row-wrap" aria-label="Programmes">
+    <div class="container">
+      <div class="prog-row" data-prog-row></div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="compare-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">At a glance</p>
+          <h2 id="compare-title" class="display" data-letters>Compare programmes</h2>
+        </div>
+        <a class="btn btn-pill" href="/admissions#calculator">Work out my fee <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="table-wrap" data-reveal>
+        <table class="data-table" data-compare>
+          <caption class="sr-only">Programmes compared: board, duration, batches and fees</caption>
+          <thead><tr><th scope="col">Programme</th><th scope="col">Board</th><th scope="col">Duration</th><th scope="col">Batches</th><th scope="col">Subjects</th><th scope="col">Monthly fee</th><th scope="col">Admission</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-label="Subject timetables" data-timetables></section>
+
+</main>
+<!-- @include footer -->
+</body>
+</html>
