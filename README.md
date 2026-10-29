@@ -1,5 +1,15 @@
 # Northstar Academy: "Find your north star"
 
+[**Live demo**](https://north-star-deoxys2.vercel.app) · [Source files](./src/) · [Local setup](#run-it)
+
+## Project at a glance
+
+A programme explorer, subject-based fee calculations, admissions form interactions, and lighter-device rendering paths.
+
+**Scope:** Frontend concept with fictional teachers, results, and fees. Applications are demonstrated locally and are not sent to a backend.
+
+**Start reviewing here:** [`src/pages/admissions.js`](./src/pages/admissions.js).
+
 Concept project 3 of 8 for the Aqoa Systems portfolio. A fictional coaching academy in PECHS, Karachi, for O/A Level, Matric, Intermediate, MDCAT and ECAT.
 
 ## What's in it
@@ -24,13 +34,13 @@ The brief suggests Rive for the mascot. Tara is drawn in SVG and animated with G
 ## Run it
 From a terminal:
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 The site uses ES modules, so it needs a server. Opening `index.html` by double-clicking won't work. Testing flags: `?lite` forces the lighter version, `?full` forces 3D.
 
 ## Deploy on Vercel
-Import the repo, set **Root Directory** to `03-northstar-academy`, and keep the detected **Vite** preset. `vercel.json` turns on clean URLs.
+Import the repo, leave **Root Directory** at the repository root (`./`), and keep the detected **Vite** preset. `vercel.json` turns on clean URLs.
 
 ## Lighter devices
 Weaker phones, data-saver users and anyone without WebGL get:
